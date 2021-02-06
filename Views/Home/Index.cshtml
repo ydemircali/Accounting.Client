@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var transType = ViewData["TransactionType"];
+    var transObjectId = ViewData["TransactionObjectId"];
+    var amount = ViewData["Amount"];
+}
+
+<div class="text-center">
+   
+    @using (Html.BeginForm("Push", "Home", "FormMethod.Post"))
+    {
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Fiş Türü</label>
+                <input type="text" value="@transType" name="TransactionType" id="TransactionType" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Fiş Id</label>
+                <input type="number" value="@transObjectId" name="TransactionObjectId" id="TransactionObjectId" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Tutar</label>
+                <input type="number" value="@amount" name="Amount" id="Amount" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3 right">
+                <input type="submit" value="Fiş Kes" class="btn btn-outline-success form-control">
+            </div>
+        </div>
+    }
+</div>

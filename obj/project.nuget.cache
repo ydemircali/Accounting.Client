@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UHzPmP+uShpmG8EeHDuGXWgt4qqaM0eqhC13plAhyqt+IBuqgPC5SOIW66d2WtoRpJCmMA1EEYUPo9JN244ckQ==",
+  "success": true,
+  "projectFilePath": "D:\\JacobDev\\Accounting\\Accounting.Client\\Accounting.Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jacob\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
