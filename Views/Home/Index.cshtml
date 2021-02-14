@@ -6,7 +6,7 @@
 }
 
 <div class="text-center">
-   
+
     @using (Html.BeginForm("Push", "Home", "FormMethod.Post"))
     {
         <div class="row">
@@ -18,7 +18,8 @@
         <div class="row">
             <div class="form-group col-md-4">
                 <label>Fiş Id</label>
-                <input type="number" value="@transObjectId" name="TransactionObjectId" id="TransactionObjectId" class="form-control">
+                <input type="number" value="@transObjectId" name="TransactionObjectId" id="TransactionObjectId"
+                    class="form-control">
             </div>
         </div>
         <div class="row">
@@ -33,4 +34,19 @@
             </div>
         </div>
     }
+    @using (Html.BeginForm("BulkPush", "Home", "FormMethod.Post"))
+    {
+         <div class="row">
+            <div class="form-group col-md-4">
+                <label>Sayı</label>
+                <input type="number" name="count" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <input type="submit" value="Çoklu Random Fiş Kes" class="btn btn-outline-success form-control">
+            </div>
+        </div>
+    }
+
 </div>

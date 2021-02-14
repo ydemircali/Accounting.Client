@@ -40,7 +40,7 @@ namespace Accounting.Client.Controllers
 
             var client = new HttpClient();
 
-            var response = await client.PostAsync(base_url+"AddQueue", data);
+            var response = await client.PostAsync(base_url + "QueueApi/AddAccTransaction", data);
             string result = await response.Content.ReadAsStringAsync();
             
             //close out the client
@@ -48,6 +48,34 @@ namespace Accounting.Client.Controllers
             
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> BulkPushAsync(int count = 100)
+        {
+            Random rnd = new Random();
+
+            var client = new HttpClient();
+
+            for (int i = 0; i < count; i++)
+            {
+                var fisModel = new FisModel();
+                fisModel.TransactionType = "Maaş";
+                fisModel.TransactionObjectId = rnd.Next(100, 9999).ToString();
+                fisModel.Amount = rnd.Next(3000, 9999).ToString();
+
+                string json = JsonConvert.SerializeObject(fisModel);
+                StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(base_url+"AddQueue", data);
+                string result = await response.Content.ReadAsStringAsync();
+            }
+           
+            
+            //close out the client
+            client.Dispose();
+            
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();
